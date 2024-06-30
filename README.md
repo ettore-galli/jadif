@@ -4,6 +4,12 @@ Just Another Dependency Injection Framework.
 
 (I'm lying - it's a library - but the name sounded good...)
 
+## Setup
+
+```shell
+pip install pip-tools
+```
+
 ## Description
 
 ## Install
