@@ -1,8 +1,8 @@
 
 lint:
-	black src/ tests/
-	ruff check src/ tests/
-	mypy src/ tests/
+	black jadif/ tests/
+	ruff check jadif/ tests/
+	mypy jadif/ tests/
 
 test:
 	pytest tests/
