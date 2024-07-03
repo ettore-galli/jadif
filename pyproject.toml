@@ -3,12 +3,28 @@ build-backend = "setuptools.build_meta"
 requires = ["setuptools >= 70.1"]
 
 [project]
-dependencies = {file = ["requirements.txt"]}
+dependencies = []
 description = "Just Another Dependency Injection Framework"
 license = {file = "LICENSE"}
 name = "jadif"
 readme = "REDME.md"
 version = "0.1.0"
+
+[project.optional-dependencies]
+format = [
+  "black>24",
+]
+lint = [
+  "ruff>=0.5",
+  "mypy>=1.10.1",
+  "tox>=4",
+]
+test = [
+  "pytest>=8",
+  "pytest-cov",
+  "pytest-sugar",
+  "coverage[toml]",
+]
 
 [tool.setuptools_scm]
 
