@@ -1,0 +1,2 @@
+Example content in file
+This is the content of the actual file
