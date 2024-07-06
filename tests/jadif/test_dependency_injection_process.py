@@ -27,7 +27,7 @@ def test_dependency_injection_process_normal() -> None:
     ]
 
 
-def test_dependency_injection_process() -> None:
+def test_dependency_injection_process_dummy() -> None:
     make_dummy_dependency()
 
     assert read_file_function(filename=EXAMPLE_FILE) == ["dummy", "data"]
