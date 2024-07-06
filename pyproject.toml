@@ -11,6 +11,7 @@ readme = "REDME.md"
 version = "0.1.0"
 
 [project.optional-dependencies]
+build = ["build"]
 format = [
   "black>24",
 ]

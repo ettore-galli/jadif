@@ -22,3 +22,4 @@ pip install pip-tools
 
 <https://github.com/ettore-galli/jadif.git>
 <https://medium.com/@Mr_Pepe/setting-your-python-project-up-for-success-in-2024-365e53f7f31e>
+<https://packaging.python.org/en/latest/tutorials/packaging-projects/>
