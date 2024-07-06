@@ -18,10 +18,6 @@ def make_dummy_dependency() -> None:
     dependency.add_config(BaseFileReader, reader)
 
 
-def test_() -> None:
-    assert EXAMPLE_FILE
-
-
 def test_dependency_injection_process_normal() -> None:
     make_normal_dependency()
 
