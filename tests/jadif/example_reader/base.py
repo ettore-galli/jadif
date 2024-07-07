@@ -1,3 +1,5 @@
-from abc import ABC
+from jadif.jadif import GeneralInterface
 
-InputFile = ABC
+
+class InputFile(GeneralInterface):
+    pass

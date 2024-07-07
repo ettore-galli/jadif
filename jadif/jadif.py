@@ -4,14 +4,12 @@ from dataclasses import dataclass, field
 from functools import wraps
 from typing import Any
 
-ABCInterface = type[ABC]
-
 
 class GeneralInterface:
     pass
 
 
-InterfaceType = ABCInterface | type[GeneralInterface]
+InterfaceType = type[ABC] | type[GeneralInterface]
 
 
 @dataclass
