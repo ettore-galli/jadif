@@ -15,8 +15,7 @@ DB_FILE = Path(Path(__file__).parent, "data", "example-db.db")
 EXAMPLE_FILE = Path(Path(__file__).parent, "data", "example-file.txt")
 
 
-def make_sqlite_dependency() -> None:
-    source_file = EXAMPLE_FILE
+def make_sqlite_dependency(source_file: Path) -> None:
     dependency.add_config(InputFile, source_file)
     reader = FileReader()
     dependency.add_config(BaseFileReader, reader)
@@ -24,8 +23,7 @@ def make_sqlite_dependency() -> None:
     dependency.add_config(BaseDBRepo, repo)
 
 
-def make_dummy_dependency() -> None:
-    source_file = Path("dummy.txt")
+def make_dummy_dependency(source_file: Path) -> None:
     dependency.add_config(InputFile, source_file)
     reader = DummyFileReader()
     dependency.add_config(BaseFileReader, reader)
@@ -34,7 +32,7 @@ def make_dummy_dependency() -> None:
 
 
 def test_dependency_injection_process_normal() -> None:
-    make_sqlite_dependency()
+    make_sqlite_dependency(source_file=EXAMPLE_FILE)
 
     assert import_into_db() == [
         "Example content in file\n",
@@ -43,6 +41,6 @@ def test_dependency_injection_process_normal() -> None:
 
 
 def test_dependency_injection_process_dummy() -> None:
-    make_dummy_dependency()
+    make_dummy_dependency(source_file=Path("dummy.txt"))
 
     assert import_into_db() == ["dummy", "data", "any"]
