@@ -4,18 +4,22 @@ from dataclasses import dataclass, field
 from functools import wraps
 from typing import Any
 
+ABCInterface = type[ABC]
+
 
 @dataclass
 class DependencyInjectionMap:
     di_map: dict[type[ABC], Any] = field(default_factory=dict)
 
-    def add_config(self, interface: type[ABC], concrete: Any) -> None:  # noqa: ANN401
+    def add_config(
+        self, interface: ABCInterface, concrete: Any  # noqa: ANN401
+    ) -> None:
         self.di_map[interface] = concrete
 
-    def resolve(self, interface: type[ABC]) -> Any:  # noqa: ANN401
+    def resolve(self, interface: ABCInterface) -> Any:  # noqa: ANN401
         return self.di_map[interface]
 
-    def can_resolve(self, interface: type[ABC]) -> bool:
+    def can_resolve(self, interface: ABCInterface) -> bool:
         return interface in self.di_map
 
     def retrieve_injectable_parameters(self, injectand: Callable) -> list:
