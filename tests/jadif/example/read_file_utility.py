@@ -2,7 +2,7 @@ from pathlib import Path
 
 from jadif.jadif import dependency
 
-from tests.jadif.read_file_service import BaseFileReader
+from tests.jadif.example.read_file_service import BaseFileReader
 
 
 def read_file_function(filename: Path) -> list[str]:
