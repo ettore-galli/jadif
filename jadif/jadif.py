@@ -7,19 +7,28 @@ from typing import Any
 ABCInterface = type[ABC]
 
 
+class GeneralInterface:
+    pass
+
+
+InterfaceType = ABCInterface | type[GeneralInterface]
+
+
 @dataclass
 class DependencyInjectionMap:
-    di_map: dict[type[ABC], Any] = field(default_factory=dict)
+    di_map: dict[InterfaceType, Any] = field(default_factory=dict)
 
     def add_config(
-        self, interface: ABCInterface, concrete: Any  # noqa: ANN401
+        self,
+        interface: InterfaceType,
+        concrete: Any,  # noqa: ANN401
     ) -> None:
         self.di_map[interface] = concrete
 
-    def resolve(self, interface: ABCInterface) -> Any:  # noqa: ANN401
+    def resolve(self, interface: InterfaceType) -> Any:  # noqa: ANN401
         return self.di_map[interface]
 
-    def can_resolve(self, interface: ABCInterface) -> bool:
+    def can_resolve(self, interface: InterfaceType) -> bool:
         return interface in self.di_map
 
     def retrieve_injectable_parameters(self, injectand: Callable) -> list:
