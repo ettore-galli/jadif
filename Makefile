@@ -7,12 +7,12 @@ install:
 	pip install ."[build]"
 
 lint:
-	black jadif/ tests/
-	ruff check jadif/ tests/
-	mypy jadif/ tests/
+	black jadif/ tests/ demo/
+	ruff check jadif/ tests/ demo/
+	mypy jadif/ tests/ demo/
 
 test:
-	pytest tests/
+	pytest tests/ demo/
 
 all: lint test
 
