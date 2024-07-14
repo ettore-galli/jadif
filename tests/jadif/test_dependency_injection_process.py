@@ -1,5 +1,6 @@
 from pathlib import Path
 
+from demo.importer.read_file_utility import read_file_function
 from jadif.jadif import dependency
 
 from tests.jadif.example_reader.read_file_service import (
@@ -7,7 +8,6 @@ from tests.jadif.example_reader.read_file_service import (
     DummyFileReader,
     FileReader,
 )
-from tests.jadif.example_reader.read_file_utility import read_file_function
 
 EXAMPLE_FILE = Path(Path(__file__).parent, "data", "example-file.txt")
 

@@ -8,13 +8,15 @@ class Configuration:
     user: str
     password: str
     database: str
+    input_file: str
 
 
-def get_db_connection() -> Configuration:
+def get_configuration() -> Configuration:
     return Configuration(
         host="localhost",
         port="3306",
         user="utente",
         password="password",  # noqa: S106
         database="jadif-demo",
+        input_file="demo/data/input.txt",
     )
