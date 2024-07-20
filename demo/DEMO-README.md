@@ -27,7 +27,7 @@ export PYTHONPATH=. # una tantum
 python demo/main_no_di.py demo/configuration/config.ini
 
 # Version *with* Dependency Injection
-python demo/main_di.py demo/configuration/config.ini
+python demo/main_with_di.py demo/configuration/config.ini
 ```
 
 ### Check the result
