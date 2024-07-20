@@ -1,4 +1,5 @@
 from collections.abc import Generator
+from datetime import datetime
 
 import mysql.connector
 from mysql.connector.abstracts import MySQLConnectionAbstract
@@ -34,5 +35,16 @@ class DataRepo:
 
         for row in cursor:  # type: ignore[union-attr]
             yield tuple(row)
+
+        cursor.close()
+
+    def insert(self, content: str, import_date: datetime) -> None:
+        cursor = self.connection.cursor()
+
+        query = "INSERT INTO import_data(CONTENT, IMPORT_DATE) VALUES(%s, %s) "
+
+        cursor.execute(query, (content, import_date))
+
+        self.connection.commit()
 
         cursor.close()

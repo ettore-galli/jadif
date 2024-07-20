@@ -1,5 +1,6 @@
 from pathlib import Path
 
+from demo.importer.clock import get_current_datetime
 from demo.importer.configuration import get_configuration
 from demo.importer.data_repo import DataRepo, get_connection
 from demo.importer.read_file_service import FileReader
@@ -10,8 +11,9 @@ if __name__ == "__main__":
 
     repo = DataRepo(connection=get_connection(configuration=configuration))
 
-    print(list(repo.get_all_data()))  # noqa: T201
-
     reader = FileReader()
 
-    print(reader.read_file(Path(configuration.input_file)))  # noqa: T201
+    for line in reader.read_file(Path(configuration.input_file)):
+        repo.insert(content=line, import_date=get_current_datetime())
+
+    print(list(repo.get_all_data()))  # noqa: T201
