@@ -22,7 +22,7 @@ demo/database/start-db.sh
 
 ```shell
 export PYTHONPATH=. # una tantum
-python demo/main.py
+python demo/main.py demo/configuration/config.ini
 ```
 
 ### Check the result
