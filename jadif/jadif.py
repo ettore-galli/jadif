@@ -9,7 +9,7 @@ class GeneralInterface:
     pass
 
 
-InterfaceType = type[ABC] | type[GeneralInterface]
+InterfaceType = type[ABC] | type[GeneralInterface] | str
 
 
 @dataclass
