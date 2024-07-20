@@ -37,15 +37,19 @@ dependency = DependencyInjectionMap()
 
 
 class Injected:
-    def __init__(self, injectand: Callable[[Any], Any]) -> None:
+    def __init__(
+        self,
+        dependency_injection_map: DependencyInjectionMap,
+        injectand: Callable[[Any], Any],
+    ) -> None:
         @wraps(injectand)
         def injected_function(*args: Any, **kwargs: Any) -> Any:  # noqa: ANN401
             injected_parameters: dict = {
-                parameter_name: dependency.resolve(parameter_type)
-                for parameter_name, parameter_type in dependency.retrieve_injectable_parameters(
+                parameter_name: dependency_injection_map.resolve(parameter_type)
+                for parameter_name, parameter_type in dependency_injection_map.retrieve_injectable_parameters(
                     injectand=injectand
                 )
-                if dependency.can_resolve(parameter_type)
+                if dependency_injection_map.can_resolve(parameter_type)
             }
             residual_kwargs = {
                 arg: value

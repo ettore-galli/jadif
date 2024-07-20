@@ -52,7 +52,7 @@ def test_dependency_injection_process_dummy() -> None:
 def test_dependency_injection_via_injected() -> None:
     make_sqlite_dependency(source_file=EXAMPLE_FILE)
 
-    import_db = Injected(import_into_db_injectable)
+    import_db = Injected(dependency, import_into_db_injectable)
 
     assert import_db() == [
         "Example content in file\n",
