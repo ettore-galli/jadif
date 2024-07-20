@@ -1,10 +1,10 @@
 import sys
 from pathlib import Path
 
-from demo.importer.clock import get_current_datetime
-from demo.importer.configuration import get_configuration
-from demo.importer.data_repo import DataRepo, get_connection
-from demo.importer.read_file_service import FileReader
+from demo.importer_no_di.clock import get_current_datetime
+from demo.importer_no_di.configuration import get_configuration
+from demo.importer_no_di.data_repo import DataRepo, get_connection
+from demo.importer_no_di.read_file_service import FileReader
 
 
 def get_input_file() -> Path:

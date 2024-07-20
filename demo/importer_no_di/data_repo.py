@@ -5,7 +5,7 @@ import mysql.connector
 from mysql.connector.abstracts import MySQLConnectionAbstract
 from mysql.connector.pooling import PooledMySQLConnection
 
-from demo.importer.configuration import Configuration
+from demo.importer_no_di.configuration import Configuration
 
 
 def get_connection(

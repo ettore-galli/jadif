@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from demo.importer.read_file_utility import read_file_function
+from demo.importer_no_di.read_file_utility import read_file_function
 from jadif.jadif import dependency
 
 from tests.jadif.example_reader.read_file_service import (
