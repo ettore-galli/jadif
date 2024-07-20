@@ -22,7 +22,12 @@ demo/database/start-db.sh
 
 ```shell
 export PYTHONPATH=. # una tantum
+
+# Version *without* Dependency Injection
 python demo/main_no_di.py demo/configuration/config.ini
+
+# Version *with* Dependency Injection
+python demo/main_di.py demo/configuration/config.ini
 ```
 
 ### Check the result
