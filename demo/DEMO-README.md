@@ -26,3 +26,7 @@ python demo/main.py demo/configuration/config.ini
 ```
 
 ### Check the result
+
+```sql
+select * from import_data id;
+```
