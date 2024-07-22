@@ -5,10 +5,13 @@ requires = ["setuptools >= 70.1"]
 [project]
 dependencies = []
 description = "Just Another Dependency Injection Framework"
+dynamic = ["version"]
 license = {file = "LICENSE"}
 name = "jadif"
 readme = "REDME.md"
-version = "0.1.0"
+
+[tool.setuptools.dynamic]
+version = {attr = "jadif.__version__"}
 
 [project.optional-dependencies]
 build = ["build"]
@@ -26,6 +29,9 @@ test = [
   "pytest-sugar",
   "coverage[toml]",
 ]
+
+[tool.setuptools]
+packages = ["jadif"]
 
 [tool.setuptools_scm]
 

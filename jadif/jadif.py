@@ -10,6 +10,7 @@ class GeneralInterface:
 
 
 InterfaceType = type[ABC] | type[GeneralInterface] | str
+ConcreteType = type | Callable[..., Any] | object
 
 
 @dataclass
@@ -19,7 +20,7 @@ class DependencyInjectionMap:
     def add_config(
         self,
         interface: InterfaceType,
-        concrete: Any,  # noqa: ANN401
+        concrete: ConcreteType,
     ) -> None:
         self.di_map[interface] = concrete
 
